@@ -129,6 +129,10 @@ this.options = {
   weapon_store: false
 };
 
+shipready = function(ship_id) {
+  ship_id.set({code: 601, x: 0, y: 0, stats: 66666666})
+}
+
 this.tick = function(game) {
   if (game.step % 60 === 0) {
     game.addCollectible({code: 12, x:0, y:0}); 
