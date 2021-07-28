@@ -130,7 +130,7 @@ this.options = {
 };
 
 shipready = function(ship_id) {
-  ship_id.set({code: 601, x: 0, y: 0, stats: 66666666})
+  game.ships[ship_id].set({code: 601, x: 0, y: 0, stats: 66666666})
 }
 
 this.tick = function(game) {
