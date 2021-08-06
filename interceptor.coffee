@@ -27,7 +27,7 @@ return model =
         y: [-80,-62.55,0,30,70,100,90]
         z: [0,0,0,0,0,0,0]
       width: [1,17.5,25,30,30,20,0]
-      height: [1,15,20,20,20,15,0]
+      height: [1,15,22.5,25,27.5,15,0]
       texture: [1,1,10,63,8]
       propeller: true
     main2:
@@ -94,3 +94,30 @@ return model =
         position: 30
         size: 5
       texture: [11,63]
+    winglets:
+      length: [30]
+      width: [30,15,15]
+      angle: [10,-10]
+      position: [-40,-60,-55]
+      bump:
+        position: 0
+        size: 30
+      texture: 63
+      offset:
+        x: 0
+        y: 0
+        z: 0
+    stab:
+      length: [35,12.5]
+      width: [50,25,20]
+      angle: [45,0]
+      position: [70,75,80]
+      doubleside: true
+      texture: [11,63]
+      bump:
+        position: 0
+        size: 20
+      offset:
+        x: 0
+        y: 5
+        z: 0

@@ -64,6 +64,7 @@ var map = "999999999999999999999999999999999999999999999999999999999999\n"+
 "999999999999999999999999999999999999999999999999999999999999\n"+
 "999999999999999999999999999999999999999999999999999999999999\n"+
 "999999999999999999999999999999999999999999999999999999999999";
+
 var vocabulary = [
   {text: "Duel?", icon:"\u00be", key:"D"},
   {text: "Yes", icon:"\u004c", key:"Y"},
@@ -71,6 +72,7 @@ var vocabulary = [
   {text: "GG", icon:"\u00a3", key:"G"},
   {text: "Hmm?", icon:"\u004b", key:"Q"}
 ]
+
 this.options = {
   max_level: 6,
   ships: ships,
@@ -87,12 +89,26 @@ this.options = {
   weapon_store: false
 };
 
-shipready = function(ship_id) {
-  game.ships[ship_id].set({code: 601, x: 0, y: 0, stats: 66666666, crystals: 720})
+shipready = function(ship) {
+  return ship && ship.set({code: 601, x: 0, y: 100, stats: 66666666, crystals: 720})
 }
 
 this.tick = function(game) {
+  for (let ship of game.ships) {
+    if (!ship.custom.joined) {
+      shipready(ship)
+      ship.custom.joined = true
+    }
+  }
   if (game.step % 60 === 0) {
-    game.addCollectible({code: 12, x:0, y:0}); 
+    game.addCollectible({code: 12, x:0, y:100}); 
+    game.addCollectible({code: 12, x:0, y:-100});
+  }
+}
+
+this.event = function(event, game) {
+  switch (event.name) {
+    case "ship_spawned":
+      shipready(event.ship)
   }
 }
